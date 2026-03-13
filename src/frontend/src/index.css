@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 15 3 285;
+    --foreground: 95 0.05 285;
+    --card: 18 5 285;
+    --card-foreground: 95 0.05 285;
+    --popover: 12 4 285;
+    --popover-foreground: 95 0.05 285;
+    --primary: 65 0.28 285;
+    --primary-foreground: 10 0 285;
+    --secondary: 20 0.12 285;
+    --secondary-foreground: 90 0.05 285;
+    --muted: 20 0.06 285;
+    --muted-foreground: 65 0.05 285;
+    --accent: 60 0.3 200;
+    --accent-foreground: 10 0 200;
+    --destructive: 55 0.25 25;
+    --destructive-foreground: 98 0 0;
+    --border: 25 0.15 285;
+    --input: 22 0.1 285;
+    --ring: 65 0.28 285;
+    --radius: 0.5rem;
+
+    --neon-purple: 60 0.32 300;
+    --neon-blue: 65 0.3 220;
+    --neon-cyan: 75 0.28 195;
+    --glow-purple: oklch(60% 0.32 300);
+    --glow-blue: oklch(65% 0.3 220);
+  }
+
+  .light {
+    --background: 97 0.01 285;
+    --foreground: 15 0.05 285;
+    --card: 95 0.02 285;
+    --card-foreground: 15 0.05 285;
+    --popover: 97 0.01 285;
+    --popover-foreground: 15 0.05 285;
+    --primary: 45 0.28 285;
+    --primary-foreground: 98 0 0;
+    --secondary: 88 0.05 285;
+    --secondary-foreground: 15 0.05 285;
+    --muted: 92 0.03 285;
+    --muted-foreground: 45 0.05 285;
+    --accent: 50 0.25 220;
+    --accent-foreground: 98 0 0;
+    --destructive: 55 0.25 25;
+    --destructive-foreground: 98 0 0;
+    --border: 82 0.06 285;
+    --input: 85 0.04 285;
+    --ring: 45 0.28 285;
+
+    --neon-purple: 45 0.28 300;
+    --neon-blue: 50 0.28 220;
+    --neon-cyan: 55 0.25 195;
+    --glow-purple: oklch(45% 0.28 300);
+    --glow-blue: oklch(50% 0.28 220);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+}
+
+@layer utilities {
+  .neon-text-purple {
+    color: oklch(var(--neon-purple));
+    text-shadow: 0 0 10px var(--glow-purple), 0 0 20px var(--glow-purple), 0 0
+      40px var(--glow-purple);
+  }
+
+  .neon-text-blue {
+    color: oklch(var(--neon-blue));
+    text-shadow: 0 0 10px var(--glow-blue), 0 0 20px var(--glow-blue), 0 0 40px
+      var(--glow-blue);
+  }
+
+  .neon-border-purple {
+    border-color: oklch(var(--neon-purple));
+    box-shadow: 0 0 5px var(--glow-purple), 0 0 10px var(--glow-purple), inset 0
+      0 5px oklch(var(--neon-purple) / 0.1);
+  }
+
+  .neon-border-blue {
+    border-color: oklch(var(--neon-blue));
+    box-shadow: 0 0 5px var(--glow-blue), 0 0 15px var(--glow-blue), inset 0 0
+      5px oklch(var(--neon-blue) / 0.1);
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: oklch(var(--neon-blue));
+    box-shadow: 0 0 8px var(--glow-blue), 0 0 20px var(--glow-blue), 0 8px 30px
+      oklch(var(--neon-purple) / 0.2);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
